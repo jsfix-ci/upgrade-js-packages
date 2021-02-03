@@ -27,8 +27,10 @@ const upgrade = (packageJson: PackageJson, packageJsonField: string) => {
 export const upgradePackages = () => {
   commander
     .version('0.1.0')
-    .description('Upgrade packages in your package.json to latest.')
-    .option('-p, --path', 'Path to your package.json file')
+    .arguments('<path>')
+    .description('Upgrade packages in your package.json to latest.', {
+      path: 'Path to your package.json file.',
+    })
     .parse(process.argv);
 
   if (!process.argv.slice(2).length) {
