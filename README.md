@@ -4,6 +4,8 @@
 
 Upgrade packages in your package.json to latest.
 
+> NOTE: this tool won't update your package to beta or rc versions, only version numbers as in `<major>.<minor>.<patch>` are considered.
+
 ## Install
 
 ```sh

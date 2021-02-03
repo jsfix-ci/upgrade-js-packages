@@ -1,6 +1,8 @@
 import compareVersions from 'compare-versions';
 import { getPackageInfo } from 'node-build-tools';
 
+const REGEX_SEMVER = /^\d+\.\d+\.\d+$/;
+
 /**
  * Get new version string for the specified package.
  * @param packageName The name of the package.
@@ -10,24 +12,28 @@ export const getNewPackageVersion = (
   packageName: string,
   currentVersion: string,
 ) => {
-  const allVersions = getPackageInfo(
-    packageName,
-    ['versions'],
-    undefined,
-    true,
-  ) as string[];
-  const reversedVersions = allVersions.sort((a, b) => -compareVersions(a, b));
+  const { log } = console;
+  (console as any).log = () => {};
+  const allVersions = getPackageInfo(packageName, ['versions'], undefined, {
+    stdio: 'pipe',
+  }) as string[];
+  (console as any).log = log;
+  const reversedVersions = allVersions
+    .filter((v) => REGEX_SEMVER.test(v))
+    .sort((a, b) => -compareVersions(a, b));
   const prefix = currentVersion.replace(/[^\d.]/g, '').split('.', 1)[0] + '.';
 
   console.log(reversedVersions);
 
+  const currentVersionNoPrefix = currentVersion.replace(/^\D+/g, '');
   for (const version of reversedVersions) {
-    if (version.startsWith(prefix)) {
+    if (
+      version.startsWith(prefix) &&
+      compareVersions(version, currentVersionNoPrefix) > 0
+    ) {
       return `^${version}`;
     }
   }
 
-  throw new Error(
-    `Package ${packageName} of version ${currentVersion} does not exist.`,
-  );
+  return currentVersion;
 };
