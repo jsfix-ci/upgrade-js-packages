@@ -1,6 +1,6 @@
 {
   "name": "upgrade-js-packages",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Upgrade packages in your package.json to latest.",
   "repository": "https://github.com/yanli0303/upgrade-js-packages.git",
   "author": "Yan Li",
