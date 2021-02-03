@@ -10,7 +10,12 @@ export const getNewPackageVersion = (
   packageName: string,
   currentVersion: string,
 ) => {
-  const allVersions = getPackageInfo(packageName, ['versions']) as string[];
+  const allVersions = getPackageInfo(
+    packageName,
+    ['versions'],
+    undefined,
+    true,
+  ) as string[];
   const reversedVersions = allVersions.sort((a, b) => -compareVersions(a, b));
   const prefix = currentVersion.replace(/[^\d.]/g, '').split('.', 1)[0] + '.';
 

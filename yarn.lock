@@ -4570,10 +4570,10 @@ no-case@^3.0.4:
     lower-case "^2.0.2"
     tslib "^2.0.3"
 
-node-build-tools@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/node-build-tools/-/node-build-tools-0.3.0.tgz#a6c8d6303cc035998eb1056ccf89a697be8f2811"
-  integrity sha512-wSrdnsjilCW9PMOF6vPMSywmlwagnyav3qkx1Ytp57TPkl/3qiyUCIYGExxFHFgLHNzkO6dlnfHcGLywiKeCzg==
+node-build-tools@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/node-build-tools/-/node-build-tools-0.3.1.tgz#b52ef096351ce345e6653d5af98f8994c404e533"
+  integrity sha512-EqxtqpXlXBv5OVS0I8xwRTqjpVRXrGykYArUHdllWZ9Pmv9HvdkFCZcBU5v7icMQ1ofMmfwO4ALLaqmg/UX+mA==
   dependencies:
     adm-zip "^0.5.2"
     fs-extra "^9.1.0"
