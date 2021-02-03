@@ -1,0 +1,42 @@
+{
+  "name": "upgrade-js-packages",
+  "version": "0.1.0",
+  "description": "Upgrade packages in your package.json to latest.",
+  "repository": "https://github.com/yanli0303/upgrade-js-packages.git",
+  "author": "Yan Li",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/test.esm.js",
+  "typings": "dist/index.d.ts",
+  "bin": {
+    "upgrade-js-packages": "dist/cli.js"
+  },
+  "scripts": {
+    "lint": "tsdx lint src",
+    "pretest": "yarn lint",
+    "test": "tsdx test --coverage",
+    "prebuild": "yarn test",
+    "build": "tsdx build",
+    "postbuild": "cp src/cli.js dist",
+    "prepare": "tsdx build",
+    "start": "tsdx watch"
+  },
+  "dependencies": {
+    "commander": "^7.0.0",
+    "compare-versions": "^3.6.0",
+    "node-build-tools": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "husky": "^4.3.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "dist"
+  ]
+}
