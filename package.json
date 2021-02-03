@@ -18,7 +18,7 @@
     "prebuild": "yarn test",
     "build": "tsdx build",
     "postbuild": "cp src/cli.js dist",
-    "prepare": "yarn build",
+    "prepublishOnly": "yarn build",
     "start": "tsdx watch"
   },
   "dependencies": {
