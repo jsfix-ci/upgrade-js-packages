@@ -1,6 +1,6 @@
 {
   "name": "upgrade-js-packages",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Upgrade packages in your package.json to latest.",
   "repository": "https://github.com/yanli0303/upgrade-js-packages.git",
   "author": "Yan Li",
@@ -18,7 +18,7 @@
     "prebuild": "yarn test",
     "build": "tsdx build",
     "postbuild": "cp src/cli.js dist",
-    "prepare": "tsdx build",
+    "prepare": "yarn build",
     "start": "tsdx watch"
   },
   "dependencies": {
