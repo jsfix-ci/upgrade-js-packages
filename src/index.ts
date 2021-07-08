@@ -1,4 +1,4 @@
-import commander from 'commander';
+import { program as commander } from 'commander';
 
 import { getNewPackageVersion } from './getNewPackageVersion';
 import { readPackageJson } from './readPackageJson';
