@@ -13,5 +13,5 @@ export const writePackageJson = (dir: string, data: object) => {
     ? dir
     : path.join(dir, 'package.json');
   const json = JSON.stringify(data, null, 2);
-  fs.writeFileSync(file, json, { encoding: 'utf8' });
+  fs.writeFileSync(file, json + '\n', { encoding: 'utf8' });
 };
